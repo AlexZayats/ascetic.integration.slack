@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+	<Authors>Alex Zayats</Authors>
+    <PackageId>Ascetic.Integration.Slack</PackageId>
+    <PackageTags>HttpClient</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/AlexZayats/ascetic.integration.slack</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AlexZayats/ascetic.integration.slack.git</RepositoryUrl> 
+    <RepositoryType>git</RepositoryType> 
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ascetic.Core.Http" Version="1.1.219" />
+  </ItemGroup>
+
+</Project>
