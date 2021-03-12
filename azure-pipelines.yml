@@ -17,7 +17,8 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: 'Ascetic.Integration.Slack/Ascetic.Integration.Slack.csproj'
-    versioningScheme: byBuildNumber
+    versioningScheme: byEnvVar
+    versionEnvVar: semanticVersion
 - task: DotNetCoreCLI@2
   displayName: 'Push to NuGet'
   inputs:
