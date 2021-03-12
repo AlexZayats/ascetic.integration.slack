@@ -15,7 +15,6 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: 'Ascetic.Integration.Slack/Ascetic.Integration.Slack.csproj'
-    versioningScheme: 'byPrereleaseNumber'
     majorVersion: '1'
     minorVersion: '0'
     patchVersion: '$(Build.BuildId)'
