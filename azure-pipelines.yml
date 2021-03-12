@@ -8,9 +8,8 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  majorVersion: 1
-  minorVersion: 0
-  semanticVersion: $[format('{0}.{1}', variables['majorVersion'], counter(variables['minorVersion'], 0))]
+  version: 1.0.0
+  semanticVersion: $[counter(variables['version'], 0)]
 
 steps:
 - task: DotNetCoreCLI@2
