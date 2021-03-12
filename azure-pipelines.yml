@@ -16,7 +16,7 @@ steps:
     command: 'pack'
     packagesToPack: 'Ascetic.Integration.Slack/Ascetic.Integration.Slack.csproj'
     versioningScheme: 'byEnvVar'
-    versionEnvVar: '$(Build.BuildId)'
+    versionEnvVar: 'Build.BuildId'
 - task: NuGetCommand@2
   displayName: 'Push to NuGet'
   inputs:
