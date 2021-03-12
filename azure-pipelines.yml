@@ -9,7 +9,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   version: 1.0.0
-  semanticVersion: $[counter(variables['version'], 0)]
+  semanticVersion: $[counter(variables['version'], 100)]
 
 steps:
 - task: DotNetCoreCLI@2
