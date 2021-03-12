@@ -39,6 +39,6 @@ namespace Ascetic.Integration.Slack.Models
         public string FooterIcon { get; set; }
 
         [JsonPropertyName("fields")]
-        public IEnumerable<SlackField> Fields { get; set; }
+        public IList<SlackField> Fields { get; set; }
     }
 }

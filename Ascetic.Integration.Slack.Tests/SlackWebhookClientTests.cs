@@ -1,4 +1,3 @@
-using Ascetic.Integration.Slack.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -20,23 +19,27 @@ namespace Ascetic.Integration.Slack.Tests
         public async Task SlackWebhookClient_PostMessageAsync()
         {
             var client = CreateClient();
-            await client.PostMessageAsync(new SlackMessage
-            {
-                Text = "TEST",
-                Channel = "#bot",
-                Attachments = new[]
-                {
-                    new SlackAttachment
-                    {
-                        Pretext = "Test pretext...",
-                        AuthorName = "Mr. Test",
-                        Title = "Test title",
-                        Text = "Test text",
-                        Footer = "Test footer",
-                        Color = "#32CD32"
-                    }
-                }
-            });
+            var message = MessageBuilder
+                .CreateMessage()
+                .AddAttachment(x => x
+                    .SetAuthor("Success Test")
+                    .SetTitle("Test Title")
+                    .SetText("Test Text")
+                    .SetFooter("Test Footer")
+                    .SetSuccessStatus())
+                .AddAttachment(x => x
+                    .SetAuthor("Warning Test")
+                    .SetTitle("Test Title")
+                    .SetText("Test Text")
+                    .SetFooter("Test Footer")
+                    .SetWarningStatus())
+                .AddAttachment(x => x
+                    .SetAuthor("Danger Test")
+                    .SetTitle("Test Title")
+                    .SetText("Test Text")
+                    .SetFooter("Test Footer")
+                    .SetDangerStatus());
+            await client.PostMessageAsync(message);
         }
     }
 }
