@@ -14,7 +14,7 @@ steps:
   displayName: 'Build and Pack'
   inputs:
     command: 'pack'
-    packagesToPack: '$(Build.ArtifactStagingDirectory)/Ascetic.Integration.Slack/Ascetic.Integration.Slack.csproj'
+    packagesToPack: 'Ascetic.Integration.Slack/Ascetic.Integration.Slack.csproj'
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'Version'
 - task: NuGetCommand@2
