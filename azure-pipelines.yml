@@ -8,6 +8,8 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  majorMinorVersion: 1.0
+  semanticVersion: $[counter(variables['majorMinorVersion'], 0)]
 
 steps:
 - task: DotNetCoreCLI@2
@@ -15,11 +17,8 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: 'Ascetic.Integration.Slack/Ascetic.Integration.Slack.csproj'
-    versioningScheme: 'byBuildNumber'
-    majorVersion: '1'
-    minorVersion: '0'
-    patchVersion: '$(Build.BuildId)'
-- task: NuGetCommand@2
+    versioningScheme: byBuildNumber
+- task: DotNetCoreCLI@2
   displayName: 'Push to NuGet'
   inputs:
     command: 'push'
