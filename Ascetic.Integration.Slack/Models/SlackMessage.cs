@@ -8,6 +8,9 @@ namespace Ascetic.Integration.Slack.Models
         [JsonPropertyName("text")]
         public string Text { get; set; }
 
+        [JsonPropertyName("blocks")]
+        public IList<object> Blocks { get; set; }
+
         [JsonPropertyName("attachments")]
         public IList<SlackAttachment> Attachments { get; set; }
     }

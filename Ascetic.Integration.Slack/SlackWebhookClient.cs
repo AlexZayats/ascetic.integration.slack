@@ -1,4 +1,5 @@
 ﻿using Ascetic.Core.Http.Extensions;
+using Ascetic.Core.Http.Settings;
 using Ascetic.Integration.Slack.Models;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Ascetic.Integration.Slack
 
         public async Task PostMessageAsync(SlackMessage message)
         {
-            await _client.PostJsonAsync("", message).ConfigureAwait(false);
+            await _client.PostJsonAsync("", message, new PostSettings { IgnoreNullProperties = true }).ConfigureAwait(false);
         }
     }
 }

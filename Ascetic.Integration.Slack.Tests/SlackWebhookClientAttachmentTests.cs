@@ -1,24 +1,16 @@
-using Microsoft.Extensions.Configuration;
+using Ascetic.Integration.Slack.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Ascetic.Integration.Slack.Tests
 {
     [TestClass]
-    public class SlackWebhookClientTests
+    public class SlackWebhookClientAttachmentTests
     {
-        public SlackWebhookClient CreateClient()
-        {
-            var configuration = new ConfigurationBuilder().AddUserSecrets<SlackWebhookClientTests>().Build();
-            return new SlackWebhookClient(new HttpClient { BaseAddress = new Uri(configuration["SlackWebhookURL"]) });
-        }
-
         [TestMethod]
-        public async Task SlackWebhookClient_PostMessageAsync()
+        public async Task SlackWebhookClient_AttachmentTest()
         {
-            var client = CreateClient();
+            var client = SlackClientHelper.CreateClient();
             var message = MessageBuilder
                 .CreateMessage()
                 .AddAttachment(x => x
