@@ -15,9 +15,9 @@ namespace Ascetic.Integration.Slack
             _client = client;
         }
 
-        public async Task PostMessageAsync(SlackMessage message)
+        public async Task PostMessageAsync(SlackMessage message, string url = "")
         {
-            await _client.PostJsonAsync("", message, new PostSettings { IgnoreNullProperties = true }).ConfigureAwait(false);
+            await _client.PostJsonAsync(url, message, new PostSettings { IgnoreNullProperties = true }).ConfigureAwait(false);
         }
     }
 }
