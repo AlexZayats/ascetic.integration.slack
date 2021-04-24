@@ -1,6 +1,7 @@
 ﻿using Ascetic.Integration.Slack.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace Ascetic.Integration.Slack.Extensions
 {
@@ -61,21 +62,9 @@ namespace Ascetic.Integration.Slack.Extensions
             return attachment;
         }
 
-        public static SlackAttachment SetSuccessStatus(this SlackAttachment attachment)
+        public static SlackAttachment SetColor(this SlackAttachment attachment, Color color)
         {
-            attachment.Color = "#28a745";
-            return attachment;
-        }
-
-        public static SlackAttachment SetWarningStatus(this SlackAttachment attachment)
-        {
-            attachment.Color = "#ffc107";
-            return attachment;
-        }
-
-        public static SlackAttachment SetDangerStatus(this SlackAttachment attachment)
-        {
-            attachment.Color = "#dc3545";
+            attachment.Color = $"#{color.R:X2}{color.G:X2}{color.B:X2}";
             return attachment;
         }
     }
